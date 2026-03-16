@@ -1,0 +1,24 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="serialWindowsForms.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="max_x" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="max_z" Type="System.Double" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="t_space" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="max_d" Type="System.Int32" Scope="User">
+      <Value Profile="(Default)">0</Value>
+    </Setting>
+    <Setting Name="root" Type="System.String" Scope="User">
+      <Value Profile="(Default)">E:\4CODE\01PointCloudProcess\2ImandPCEqui_CODE\ImageandPointCloudIntegratedScannerSoftware\serialWindowsForms\</Value>
+    </Setting>
+    <Setting Name="rootpath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">E:\4CODE\01PointCloudProcess\2ImandPCEqui_CODE\ImageandPointCloudIntegratedScannerSoftware\serialWindowsForms\images\</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

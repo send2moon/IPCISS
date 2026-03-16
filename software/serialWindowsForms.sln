@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.34601.136
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "serialWindowsForms", "serialWindowsForms\serialWindowsForms.csproj", "{79C35976-F3E1-47CF-ABC2-4DF5917DCC3E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Debug|x64 = Debug|x64
+		Release|Any CPU = Release|Any CPU
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{79C35976-F3E1-47CF-ABC2-4DF5917DCC3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{79C35976-F3E1-47CF-ABC2-4DF5917DCC3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{79C35976-F3E1-47CF-ABC2-4DF5917DCC3E}.Debug|x64.ActiveCfg = Debug|x64
+		{79C35976-F3E1-47CF-ABC2-4DF5917DCC3E}.Debug|x64.Build.0 = Debug|x64
+		{79C35976-F3E1-47CF-ABC2-4DF5917DCC3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{79C35976-F3E1-47CF-ABC2-4DF5917DCC3E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{79C35976-F3E1-47CF-ABC2-4DF5917DCC3E}.Release|x64.ActiveCfg = Release|x64
+		{79C35976-F3E1-47CF-ABC2-4DF5917DCC3E}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1E08705C-4F9B-4810-92ED-2689215CF823}
+	EndGlobalSection
+EndGlobal
