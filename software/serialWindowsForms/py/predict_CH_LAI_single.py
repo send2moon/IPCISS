@@ -1,11 +1,9 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-单样本多模态预测：输入一个 PLY 点云路径和一张 RGB 图像路径，
-同时提取点云结构特征 + RGB 植被指数统计特征，
-再调用 CH.joblib 和 LAI.joblib 模型分别预测 CH 与 LAI。
+CH and LAI prediction
 
-示例：
+Example：
 python predict_CH_LAI_single.py \
   --ply_path "/data/sample001.ply" \
   --rgb_path "/data/sample001.jpg" \
@@ -13,7 +11,7 @@ python predict_CH_LAI_single.py \
   --lai_model "/data/models/LAI.joblib" \
   --save_features "/data/sample001_features.xlsx"
 
-依赖：
+dependency：
   pip install open3d opencv-python pandas numpy openpyxl joblib
 """
 
@@ -40,9 +38,6 @@ except Exception as e:
 EPS = 1e-6
 
 
-# =========================
-# RGB 指数特征
-# =========================
 def safe_div(a: np.ndarray, b: np.ndarray, eps: float = EPS) -> np.ndarray:
     return a / (b + eps)
 
@@ -163,9 +158,6 @@ def extract_rgb_features(
     return feats
 
 
-# =========================
-# 点云结构特征
-# =========================
 def robust_ground_z0(z: np.ndarray) -> float:
     if z.size == 0:
         return 0.0
@@ -466,9 +458,6 @@ def extract_ply_features(
     return feats
 
 
-# =========================
-# 模型特征对齐与预测
-# =========================
 def try_get_feature_names(model_obj: Any) -> list[str] | None:
     candidates = []
 
@@ -558,7 +547,7 @@ def align_features_for_model(
 
     missing = [c for c in required_features if c not in feature_df.columns]
     if missing and on_missing == "error":
-        raise KeyError(f"模型所需特征缺失: {missing}")
+        raise KeyError(f"The required features of the model are missing: {missing}")
 
     X = feature_df.reindex(columns=required_features)
     X = X.apply(pd.to_numeric, errors="coerce")
@@ -592,7 +581,7 @@ def predict_with_model(
     if hasattr(model, "predict"):
         pred = model.predict(X)
     else:
-        raise TypeError(f"对象不支持 predict(): {type(model)}")
+        raise TypeError(f"The object is not supported. predict(): {type(model)}")
 
     pred_value = float(np.asarray(pred).reshape(-1)[0])
     return {
@@ -607,9 +596,6 @@ def predict_with_model(
     }
 
 
-# =========================
-# 总流程
-# =========================
 def extract_all_multimodal_features(
     ply_path: str | Path,
     rgb_path: str | Path,
@@ -704,15 +690,12 @@ def save_features_table(features: dict[str, Any], out_path: str | Path) -> None:
         df_num.to_excel(writer, index=False, sheet_name="numeric_features")
 
 
-# =========================
-# CLI
-# =========================
 def build_argparser() -> argparse.ArgumentParser:
-    ap = argparse.ArgumentParser(description="输入一个 PLY + 一张 RGB 图，直接预测 CH 和 LAI")
-    ap.add_argument("--ply_path", type=str, required=True, help="单个 .ply 点云路径")
-    ap.add_argument("--rgb_path", type=str, required=True, help="单张 RGB 图像路径")
-    ap.add_argument("--ch_model", type=str, required=True, help="CH.joblib 路径")
-    ap.add_argument("--lai_model", type=str, required=True, help="LAI.joblib 路径")
+    ap = argparse.ArgumentParser(description="PLY + RGB")
+    ap.add_argument("--ply_path", type=str, required=True, help="")
+    ap.add_argument("--rgb_path", type=str, required=True, help="")
+    ap.add_argument("--ch_model", type=str, required=True, help="CH.joblib")
+    ap.add_argument("--lai_model", type=str, required=True, help="LAI.joblib")
 
     ap.add_argument("--mask_mode", type=str, default="exg_otsu", choices=["none", "exg_otsu", "exg_fixed"])
     ap.add_argument("--exg_thr", type=float, default=0.0)
@@ -725,11 +708,11 @@ def build_argparser() -> argparse.ArgumentParser:
     ap.add_argument("--knn_normals", type=int, default=30)
     ap.add_argument("--normal_ds_voxel", type=float, default=0.03)
 
-    ap.add_argument("--fill_value", type=float, default=0.0, help="缺失特征填充值")
-    ap.add_argument("--on_missing", type=str, default="zero", choices=["zero", "nan", "error"], help="模型需要但当前缺失特征的处理方式")
+    ap.add_argument("--fill_value", type=float, default=0.0, help="Missing feature fill-in value")
+    ap.add_argument("--on_missing", type=str, default="zero", choices=["zero", "nan", "error"], help="")
 
-    ap.add_argument("--save_features", type=str, default="", help="可选：保存提取特征到 xlsx")
-    ap.add_argument("--save_json", type=str, default="", help="可选：保存预测结果到 json")
+    ap.add_argument("--save_features", type=str, default="", help="xlsx")
+    ap.add_argument("--save_json", type=str, default="", help="json")
     return ap
 
 
@@ -763,15 +746,15 @@ def main() -> None:
     print("=" * 60)
 
     if result["CH_model_info"]["missing_features"]:
-        print("[WARN] CH 模型缺失特征:")
+        print("[WARN] CH Model missing features:")
         print(result["CH_model_info"]["missing_features"])
     if result["LAI_model_info"]["missing_features"]:
-        print("[WARN] LAI 模型缺失特征:")
+        print("[WARN] LAI Model missing features:")
         print(result["LAI_model_info"]["missing_features"])
 
     if args.save_features:
         save_features_table(result["all_features"], args.save_features)
-        print(f"[OK] 特征已保存: {Path(args.save_features).resolve()}")
+        print(f"[OK] Feature has been saved: {Path(args.save_features).resolve()}")
 
     if args.save_json:
         out_path = Path(args.save_json)
@@ -780,7 +763,7 @@ def main() -> None:
         serializable["all_features"] = {k: (float(v) if isinstance(v, (np.integer, np.floating)) else v) for k, v in result["all_features"].items()}
         with open(out_path, "w", encoding="utf-8") as f:
             json.dump(serializable, f, ensure_ascii=False, indent=2)
-        print(f"[OK] 结果已保存: {out_path.resolve()}")
+        print(f"[OK] The result has been saved.: {out_path.resolve()}")
 
 
 if __name__ == "__main__":
