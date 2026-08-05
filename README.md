@@ -35,6 +35,15 @@ The `system_calibration` directory contains the following calibration scripts an
 
 The `software` directory contains the source code for the IPCISS operating software. The core implementation is provided in `mainform.cs`.
 
+### Operating Procedure
+
+1. Connect the laptop to IPCISS using the serial cable.
+2. Launch the operating software and open the corresponding serial port.
+3. Click **Reset** to return the sensor unit to its initial position.
+4. Click **ColorCorrection** to acquire an image containing the color calibration chart and calculate the color-correction matrix.
+5. Click **Run** to start scanning.
+6. Click **Stop** to terminate the scan. The system then outputs an RGB-colored 3D point cloud.
+
 ![IPCISS operating-software interface](readme_assets/ipciss_software_interface.png)
 
 *IPCISS operating-software interface.*

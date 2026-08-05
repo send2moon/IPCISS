@@ -1,12 +1,53 @@
 {
   "Version": 1,
   "WorkspaceRootPath": "D:\\git\\IPCISS\\software\\",
-  "Documents": [],
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{79C35976-F3E1-47CF-ABC2-4DF5917DCC3E}|serialWindowsForms\\serialWindowsForms.csproj|d:\\git\\ipciss\\software\\serialwindowsforms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{79C35976-F3E1-47CF-ABC2-4DF5917DCC3E}|serialWindowsForms\\serialWindowsForms.csproj|solutionrelative:serialwindowsforms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{79C35976-F3E1-47CF-ABC2-4DF5917DCC3E}|serialWindowsForms\\serialWindowsForms.csproj|d:\\git\\ipciss\\software\\serialwindowsforms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{79C35976-F3E1-47CF-ABC2-4DF5917DCC3E}|serialWindowsForms\\serialWindowsForms.csproj|solutionrelative:serialwindowsforms\\mainform.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    }
+  ],
   "DocumentGroupContainers": [
     {
       "Orientation": 0,
       "VerticalTabListWidth": 256,
-      "DocumentGroups": []
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "mainform.cs",
+              "DocumentMoniker": "D:\\git\\IPCISS\\software\\serialWindowsForms\\mainform.cs",
+              "RelativeDocumentMoniker": "serialWindowsForms\\mainform.cs",
+              "ToolTip": "D:\\git\\IPCISS\\software\\serialWindowsForms\\mainform.cs",
+              "RelativeToolTip": "serialWindowsForms\\mainform.cs",
+              "ViewState": "AgIAAEUEAAAAAAAAAAAiwFEEAAAMAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-05T12:27:27.36Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "mainform.cs [\u8BBE\u8BA1]",
+              "DocumentMoniker": "D:\\git\\IPCISS\\software\\serialWindowsForms\\mainform.cs",
+              "RelativeDocumentMoniker": "serialWindowsForms\\mainform.cs",
+              "ToolTip": "D:\\git\\IPCISS\\software\\serialWindowsForms\\mainform.cs [\u8BBE\u8BA1]",
+              "RelativeToolTip": "serialWindowsForms\\mainform.cs [\u8BBE\u8BA1]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-08-05T12:27:25.14Z",
+              "EditorCaption": " [\u8BBE\u8BA1]"
+            }
+          ]
+        }
+      ]
     }
   ]
 }
