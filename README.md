@@ -2,7 +2,7 @@
 
 This repository contains the official source code and supporting design files for our paper:
 
-**A Low-Cost RGB Image and Point Cloud Integrated Scanning System for Wheat Phenotyping**
+**A Low-Cost RGB Image and Point Cloud Integrated Scanning System for Wheat Phenotyping [https://www.sciencedirect.com/science/article/abs/pii/S0168169926010392]**
 
 ## Introduction
 
